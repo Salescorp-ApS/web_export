@@ -9,7 +9,6 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'dart:math' as math;
 
 
@@ -409,93 +408,95 @@ class _ScreenA extends State<ScreenA> {
                                             child:
                                             Padding(
                                               padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.05),
-                                              child: BarChart(
-                                                  BarChartData(
-                                                    maxY: toOreKWH(
-                                                        snapshot.data?.dkData[chosenRegion-1].map<double>((
-                                                            x) => x.value).reduce(
-                                                            math.max).toDouble())
-                                                        * 1.2, // Creates 20% padding above highest value
-                                                    barTouchData: BarTouchData(
-                                                        allowTouchBarBackDraw: false,
-                                                        handleBuiltInTouches: false,
-                                                        touchTooltipData: BarTouchTooltipData(
-                                                            tooltipBgColor: Colors
-                                                                .transparent,
-                                                            getTooltipItem: (
-                                                                BarChartGroupData group,
-                                                                int groupIndex,
-                                                                BarChartRodData rod,
-                                                                int rodIndex,) {
-                                                              return BarTooltipItem(
-                                                                rod.toY.round()
-                                                                    .toString(),
-                                                                TextStyle(
-                                                                  color: getColorFromIndex(
-                                                                      groupIndex,
-                                                                      snapshot.data!
-                                                                          .dkData[chosenRegion-1]),
-                                                                  fontSize: 10,
-                                                                ),
-                                                              );
-                                                            }
-                                                        )
-                                                    ),
-
-                                                    borderData: FlBorderData(
-                                                        border: const Border(
-                                                          top: BorderSide.none,
-                                                          right: BorderSide.none,
-                                                          //left: BorderSide(width: 1, color: Colors.pink),
-                                                          //bottom: BorderSide(width: 1, color: tertiaryColor),
-                                                        )
-                                                    ),
-                                                    groupsSpace: 10,
-                                                    barGroups: snapshot.data!
-                                                        .dkData[chosenRegion-1]
-                                                        .map((dataItem) =>
-                                                        BarChartGroupData(x: daysBetween(
-                                                            DateTime.now().subtract(
-                                                                const Duration(days: 1)),
-                                                            dataItem.startTime) * 24 +
-                                                            dataItem.startTime.hour,
-                                                          barRods: [
-                                                            BarChartRodData(
-                                                                toY: toOreKWH(
-                                                                    dataItem.value),
-                                                                width: 10,
-                                                                color: getColor(
-                                                                    dataItem.startTime)
-                                                            ),
-                                                          ],
-                                                          showingTooltipIndicators: [0],
-                                                        )).toList(),
-                                                    titlesData: FlTitlesData(
-                                                      show: true,
-                                                      rightTitles: AxisTitles(
-                                                        sideTitles: SideTitles(
-                                                            showTitles: false),
-                                                      ),
-                                                      topTitles: AxisTitles(
-                                                        sideTitles: SideTitles(
-                                                            showTitles: false),
-                                                      ),
-                                                      bottomTitles: AxisTitles(
-                                                        sideTitles: SideTitles(
-                                                          showTitles: true,
-                                                          reservedSize: 42,
-                                                          getTitlesWidget: bottomTitles,
-                                                        ),
-                                                      ),
-                                                      leftTitles: AxisTitles(
-                                                        sideTitles: SideTitles(
-                                                          showTitles: false,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    gridData: FlGridData(show: false),
-                                                  )
-                                              ),
+                                              child:
+                                                Container(),
+                                              // BarChart(
+                                              //     BarChartData(
+                                              //       maxY: toOreKWH(
+                                              //           snapshot.data?.dkData[chosenRegion-1].map<double>((
+                                              //               x) => x.value).reduce(
+                                              //               math.max).toDouble())
+                                              //           * 1.2, // Creates 20% padding above highest value
+                                              //       barTouchData: BarTouchData(
+                                              //           allowTouchBarBackDraw: false,
+                                              //           handleBuiltInTouches: false,
+                                              //           touchTooltipData: BarTouchTooltipData(
+                                              //               tooltipBgColor: Colors
+                                              //                   .transparent,
+                                              //               getTooltipItem: (
+                                              //                   BarChartGroupData group,
+                                              //                   int groupIndex,
+                                              //                   BarChartRodData rod,
+                                              //                   int rodIndex,) {
+                                              //                 return BarTooltipItem(
+                                              //                   rod.toY.round()
+                                              //                       .toString(),
+                                              //                   TextStyle(
+                                              //                     color: getColorFromIndex(
+                                              //                         groupIndex,
+                                              //                         snapshot.data!
+                                              //                             .dkData[chosenRegion-1]),
+                                              //                     fontSize: 10,
+                                              //                   ),
+                                              //                 );
+                                              //               }
+                                              //           )
+                                              //       ),
+                                              //
+                                              //       borderData: FlBorderData(
+                                              //           border: const Border(
+                                              //             top: BorderSide.none,
+                                              //             right: BorderSide.none,
+                                              //             //left: BorderSide(width: 1, color: Colors.pink),
+                                              //             //bottom: BorderSide(width: 1, color: tertiaryColor),
+                                              //           )
+                                              //       ),
+                                              //       groupsSpace: 10,
+                                              //       barGroups: snapshot.data!
+                                              //           .dkData[chosenRegion-1]
+                                              //           .map((dataItem) =>
+                                              //           BarChartGroupData(x: daysBetween(
+                                              //               DateTime.now().subtract(
+                                              //                   const Duration(days: 1)),
+                                              //               dataItem.startTime) * 24 +
+                                              //               dataItem.startTime.hour,
+                                              //             barRods: [
+                                              //               BarChartRodData(
+                                              //                   toY: toOreKWH(
+                                              //                       dataItem.value),
+                                              //                   width: 10,
+                                              //                   color: getColor(
+                                              //                       dataItem.startTime)
+                                              //               ),
+                                              //             ],
+                                              //             showingTooltipIndicators: [0],
+                                              //           )).toList(),
+                                              //       titlesData: FlTitlesData(
+                                              //         show: true,
+                                              //         rightTitles: AxisTitles(
+                                              //           sideTitles: SideTitles(
+                                              //               showTitles: false),
+                                              //         ),
+                                              //         topTitles: AxisTitles(
+                                              //           sideTitles: SideTitles(
+                                              //               showTitles: false),
+                                              //         ),
+                                              //         bottomTitles: AxisTitles(
+                                              //           sideTitles: SideTitles(
+                                              //             showTitles: true,
+                                              //             reservedSize: 42,
+                                              //             getTitlesWidget: bottomTitles,
+                                              //           ),
+                                              //         ),
+                                              //         leftTitles: AxisTitles(
+                                              //           sideTitles: SideTitles(
+                                              //             showTitles: false,
+                                              //           ),
+                                              //         ),
+                                              //       ),
+                                              //       gridData: FlGridData(show: false),
+                                              //     )
+                                              // ),
                                             )
 
                                         )
@@ -660,34 +661,33 @@ class _ScreenA extends State<ScreenA> {
   //     return Container();
   //   }
   // }
-
-  Widget bottomTitles(double value, TitleMeta meta) {
-    List<DataItem> data = [];
-    if (chosenRegion == 1){
-      data = dk1;
-    }
-    else {
-      data = dk2;
-    }
-    Widget text = Text(
-      "${value.toInt()%24}-${(value.toInt()%24)+1}",
-      style: TextStyle(
-        color: getColorFromIndex(value.toInt()+96, data),
-        fontWeight: FontWeight.bold,
-        fontSize: 8,
-      ),
-    );
-    text = Transform.rotate(
-      angle: -math.pi / 4,
-      child: text,
-    );
-
-    return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 16, //margin top
-      child: text,
-    );
-  }
+  //
+  // Widget bottomTitles(double value, TitleMeta meta) {
+  //   List<DataItem> data = [];
+  //   if (chosenRegion == 1){
+  //     data = dk1;
+  //   }
+  //   else {
+  //     data = dk2;
+  //   }
+  //   Widget text = Text(
+  //     "${value.toInt()%24}-${(value.toInt()%24)+1}",
+  //     style: TextStyle(
+  //       color: getColorFromIndex(value.toInt()+96, data),
+  //       fontWeight: FontWeight.bold,
+  //       fontSize: 8,
+  //     ),
+  //   );
+  //   text = Transform.rotate(
+  //     angle: -math.pi / 4,
+  //     child: text,
+  //   );
+  //
+  //   return SideTitleWidget(
+  //     axisSide: meta.axisSide,
+  //     space: 16, //margin top
+  //     child: text,
+  //   );
 
   Color getColor(DateTime startTime) {
     if (startTime.day == DateTime.now().day && startTime.hour == DateTime.now().hour){
