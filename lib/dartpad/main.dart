@@ -1,13 +1,8 @@
 import 'dart:async';
 import 'dart:ui';
-import 'package:elpris_app/screen_startup.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import './screen_a.dart';
-import './screen_b.dart';
-import 'DataFetcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 var primaryColor = const Color(0xffEDEEEA);
@@ -239,22 +234,6 @@ Future<DataRequiredForBuild> _fetchAllData() async {
   );
 }
 
-Future<SharedPreferences> getSharedPrefsInit() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  try {
-    if (prefs.getInt('region') == null || prefs.getInt('region') == 0) {
-      prefs.setInt('region', 1);
-      prefs.setInt('theme', 0);
-    }
-    else {
-      print(prefs.getInt('region'));
-    }
-  } catch(e) {
-    prefs.setInt('region', 1);
-    prefs.setInt('theme', 0);
-  }
-  return prefs;
-}
 
 
 
