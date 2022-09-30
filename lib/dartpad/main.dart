@@ -3,8 +3,6 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import './screen_a.dart';
-import 'DataFetcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 var primaryColor = const Color(0xffEDEEEA);
