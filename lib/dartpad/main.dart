@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import './screen_a.dart';
+import 'DataFetcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 var primaryColor = const Color(0xffEDEEEA);
@@ -18,8 +20,6 @@ bool testing = false; //kDebugMode;
 ThemeMode themeMode = ThemeMode.light;
 
 void main() async {
-  // await Hive.initFlutter();
-  // Hive.registerAdapter(DataItemAdapter());
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -100,8 +100,6 @@ class HomePageState extends State<HomePage> {
 
   final List _screens = [
     {"screen": const ScreenA(), "title": "Screen A Title"},
-    {"screen": const ScreenB(), "title": "Screen B Title"},
-    {"screen": const ScreenStartup(), "title": "StartUp"},
   ];
 
   void selectScreen(int index) {
