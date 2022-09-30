@@ -7,9 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './screen_a.dart';
 import './screen_b.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'DataFetcher.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 var primaryColor = const Color(0xffEDEEEA);
